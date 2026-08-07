@@ -646,5 +646,5 @@ class MarkdownConverter {
   }
 }
 
-module.exports = { MarkdownConverter };
-module.exports.default = MarkdownConverter;
+export { MarkdownConverter };
+export default MarkdownConverter;

@@ -1,6 +1,6 @@
 'use strict';
 // 净式引擎测试 — 24 用例（移植自 Python 验证版 jingshi_v2.py，17/17 全绿 + 扩展）
-const { MarkdownConverter } = require('./jingshi.js');
+import { MarkdownConverter } from './jingshi.js';
 
 const conv = new MarkdownConverter();
 

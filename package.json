@@ -6,6 +6,12 @@
   "license": "MIT",
   "main": "engine/jingshi.js",
   "types": "engine/jingshi.d.ts",
+  "exports": {
+    ".": {
+      "types": "./engine/jingshi.d.ts",
+      "import": "./engine/jingshi.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
