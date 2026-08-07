@@ -1,0 +1,12 @@
+{
+  "name": "jingshi-engine",
+  "version": "0.1.0",
+  "description": "JingShi engine - professional symbols (LaTeX/Markdown) to chat-readable plain text. Platform-independent, zero dependencies.",
+  "main": "engine/jingshi.js",
+  "types": "engine/jingshi.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "test": "node engine/test.js"
+  },
+  "keywords": ["latex", "markdown", "plain-text", "unicode", "cleaner", "chat"]
+}
