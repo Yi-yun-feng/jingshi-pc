@@ -1,22 +1,28 @@
-import { invoke } from "@tauri-apps/api/core";
+import { MarkdownConverter } from "../engine/jingshi.js";
 
-let greetInputEl: HTMLInputElement | null;
-let greetMsgEl: HTMLElement | null;
+const conv = new MarkdownConverter();
 
-async function greet() {
-  if (greetMsgEl && greetInputEl) {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsgEl.textContent = await invoke("greet", {
-      name: greetInputEl.value,
-    });
-  }
+const inputEl = document.querySelector<HTMLTextAreaElement>("#input")!;
+const outputEl = document.querySelector<HTMLTextAreaElement>("#output")!;
+const copyBtn = document.querySelector<HTMLButtonElement>("#copy")!;
+const clearBtn = document.querySelector<HTMLButtonElement>("#clear")!;
+
+function convert() {
+  outputEl.value = conv.convert(inputEl.value);
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
+function copy() {
+  void navigator.clipboard.writeText(outputEl.value);
+  const original = copyBtn.textContent;
+  copyBtn.textContent = "已复制";
+  window.setTimeout(() => {
+    copyBtn.textContent = original;
+  }, 1200);
+}
+
+inputEl.addEventListener("input", convert);
+copyBtn.addEventListener("click", copy);
+clearBtn.addEventListener("click", () => {
+  inputEl.value = "";
+  convert();
 });

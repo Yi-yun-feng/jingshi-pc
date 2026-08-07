@@ -1,43 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
+    <title>净式 JingShi</title>
     <script type="module" src="/src/main.ts" defer></script>
   </head>
 
   <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+    <main class="app">
+      <header class="app-header">
+        <h1>净式</h1>
+        <span class="app-sub">专业符号 → 聊天可读纯文本</span>
+      </header>
 
-      <div class="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/src/assets/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img
-            src="/src/assets/tauri.svg"
-            class="logo tauri"
-            alt="Tauri logo"
-          />
-        </a>
-        <a href="https://www.typescriptlang.org/docs" target="_blank">
-          <img
-            src="/src/assets/typescript.svg"
-            class="logo typescript"
-            alt="typescript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+      <section class="panes">
+        <div class="pane">
+          <div class="pane-head">
+            <label for="input">原文（LaTeX / Markdown）</label>
+            <button id="clear" class="ghost" type="button">清空</button>
+          </div>
+          <textarea id="input" spellcheck="false" placeholder="粘贴公式或聊天文本，例如：$\frac{a}{b}$ 与 $E = mc^2$"></textarea>
+        </div>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
+        <div class="pane">
+          <div class="pane-head">
+            <label for="output">结果</label>
+            <button id="copy" type="button">复制</button>
+          </div>
+          <textarea id="output" readonly placeholder="转换结果会显示在这里"></textarea>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>转换发生在本地，内容不会上传。</span>
+      </footer>
     </main>
   </body>
 </html>
