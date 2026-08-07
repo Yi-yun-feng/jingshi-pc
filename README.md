@@ -29,7 +29,7 @@ jingshi-pc/
 ## 当前进度
 
 - [x] 净化引擎 JS 版（移植自鸿蒙 v2 引擎）— 24/24 测试通过
-- [ ] Tauri 壳（等 Rust + MSVC Build Tools 工具链）
+- [x] Tauri 2 壳 scaffold（前端 + Rust 编译验证通过）
 - [ ] 桌面界面：输入/转换/复制
 - [ ] 开源发布（GitHub + CI 三平台构建）
 
