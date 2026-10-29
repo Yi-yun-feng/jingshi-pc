@@ -1,0 +1,53 @@
+{
+  "_说明": "功能清单。只改 passes 字段，不许删条目或改 description。新功能往数组末尾加。",
+  "features": [
+    {
+      "category": "engine",
+      "description": "把 LaTeX 数学公式转成微信/QQ 可显示的纯文本",
+      "steps": ["输入 $\\frac{a}{b}$", "输出 a/b 形式的纯文本", "不含数学斜体 Unicode"],
+      "passes": true
+    },
+    {
+      "category": "engine",
+      "description": "递归下降解析 LaTeX 结构（分组、上下标、环境）",
+      "steps": ["输入含 \\begin{bmatrix} 的矩阵", "按行输出，不压成一行"],
+      "passes": true
+    },
+    {
+      "category": "engine",
+      "description": "识别行内公式 $...$ 与行间公式 $$...$$",
+      "steps": ["输入 $a+b$ 和 $$c+d$$", "分别按行内和行间规则处理"],
+      "passes": true
+    },
+    {
+      "category": "engine",
+      "description": "符号表覆盖 2330 条，剔除数学斜体变体",
+      "steps": ["查 \\alpha \\sum \\mathbb{Z} 等", "输出普通 Unicode 而非 U+1D400 段变体"],
+      "passes": true
+    },
+    {
+      "category": "engine",
+      "description": "支持 \\pmod \\bmod \\xleftarrow \\xrightarrow 等",
+      "steps": ["输入 $x \\xleftarrow{$} \\mathbb{Z}_q$", "输出 x ←($) Z_(q)"],
+      "passes": true
+    },
+    {
+      "category": "ui",
+      "description": "桌面界面：输入框 → 即时转换 → 复制按钮",
+      "steps": ["打开界面", "输入公式", "看到转换结果", "点复制能拿到文本"],
+      "passes": true
+    },
+    {
+      "category": "ui",
+      "description": "ArkUI 原生界面（鸿蒙 PC）",
+      "steps": ["在 DevEco 里打开", "编译通过", "真机运行显示输入与输出"],
+      "passes": false
+    },
+    {
+      "category": "test",
+      "description": "测试从干净状态跑，不使用旧编译产物",
+      "steps": ["清掉产物", "重新编译", "跑测试", "记录产物时间戳"],
+      "passes": true
+    }
+  ]
+}
